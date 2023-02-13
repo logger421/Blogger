@@ -1,8 +1,39 @@
+* {
+  box-sizing: border-box;
+}
+html, body {
+  min-height: 100%;
+  background: #fff;
+  color: #000;
+}
+/* sets the body height of the browser, so that backgrounds and div heights work correctly. Color and background will almost certainly be altered; they are just placeholders */
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 1.4rem;
+  text-rendering: optimizeLegibility;
+}
+/*TODO DELETE THIS BACKGROUND COLOR*/
+.main-body-container {
+  background: cornflowerblue;
+  min-height: 100vh;
+}
+/*TODO DELETE THIS BACKGROUND COLOR*/
+.general-forms {
+  background: powderblue;
+  margin        : 0;
+  padding       : 0;
+  display       : grid;
+  place-content : center;
+  min-height    : 50vh;
 }
 
-a {
-  color: #00B7FF;
+.general-forms a {
+  text-decoration: none;
+}
+
+.general-forms button, input{
+  border-radius: 5px;
+}
+.general-forms label {
+  padding-top: 10px;
 }

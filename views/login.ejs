@@ -1,0 +1,11 @@
+<%- include('partials/header') %>
+<div class="main-body-container">
+    <form class="login-form general-forms" action="/login" method="POST">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Enter username">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter password">
+        <input type="submit" value="Login">
+        <button><a href='/register'>Register</a></button>
+    </form>
+</div>
