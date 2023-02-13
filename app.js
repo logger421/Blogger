@@ -31,7 +31,7 @@ app.use('/add-blog', addBlogRouter);
 app.use('/about', aboutRouter);
 
 // TODO: give access to home page only to logged people, redirect rest to login page.
-app.use('/*', function (req, res) {
+app.get('/*', function (req, res) {
     res.redirect('/home');
 });
 
