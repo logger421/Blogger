@@ -1,8 +1,14 @@
 <%- include('partials/header') %>
 <div class="main-body-container">
   <%- include('partials/nav') %>
-  <h1><%= title %></h1>
-  <p>Welcome to <%= title %></p>
+  <div class="main-content-container">
+    <h3>Welcome to Blogger, take a look on some interesting blogs!</h3>
+    <%for (blog of blogs) { %>
+    <div class="blog">
+      <h2><%= blog.title%></h2>
+      <p><%= blog.content%></p>
+    </div>
+    <%}%>
+  </div>
   <%- include('partials/footer') %>
 </div>
-

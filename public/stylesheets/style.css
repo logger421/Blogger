@@ -16,20 +16,41 @@ body {
   font-size: 1.4rem;
   text-rendering: optimizeLegibility;
 }
-/*TODO DELETE THIS BACKGROUND COLOR*/
+
+/* HOME START */
 .main-body-container {
-  background: cornflowerblue;
+  background: linear-gradient(to bottom, #0E5CAD, #7CBF70);
   min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 }
-/*TODO DELETE THIS BACKGROUND COLOR*/
+
+.main-content-container {
+  grid-row: 2 / 3;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content-container h2{
+  text-align: center;
+  border: solid pink;
+}
+
+.main-content-container p{
+  text-align: center;
+  border: solid gold;
+  margin: 5px 0px;
+}
+/* HOME END */
+
 /* FORMS START*/
 .general-forms {
   background: powderblue;
-  margin        : 0;
-  padding       : 0;
-  display       : grid;
-  place-content : center;
-  min-height    : 50vh;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  place-content: center;
+  min-height: 50vh;
 }
 
 .general-forms a {
@@ -43,6 +64,7 @@ body {
 .general-forms button, input{
   border-radius: 5px;
 }
+
 .general-forms label {
   padding-top: 5px;
 }
@@ -66,6 +88,7 @@ body {
 .navbar-container {
   background-color: #333;
   height: 50px;
+  grid-row: 1 / 2;
 }
 
 .navbar-container ul {
@@ -91,5 +114,17 @@ body {
   padding: 0 10px;
   line-height: 50px;
 }
-
 /* NAVBAR END */
+
+/*FOOTER */
+.footer-container {
+  grid-row: 3 / 4;
+  width: 98%;
+  background: white;
+  border-radius: 5px;
+  justify-self: center;
+  text-align: center;
+  border: solid black;
+  height: 35px;
+  margin-bottom: 5px;
+}
