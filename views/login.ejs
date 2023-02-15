@@ -1,11 +1,16 @@
 <%- include('partials/header') %>
 <div class="main-body-container">
     <form class="login-form general-forms" action="/login" method="POST">
+        <% if(message){ %>
+            <div style="font-size: medium; color: red">Username or password incorrect</div>
+        <%}%>
         <label for="username">Username:</label>
-        <input type="text" id="username" name="username" placeholder="Enter username">
+        <input type="text" id="username" name="username" placeholder="Enter username" required="true">
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" placeholder="Enter password">
-        <input type="submit" value="Login">
-        <button><a href='/register'>Register</a></button>
+        <input type="password" id="password" name="password" placeholder="Enter password" required="true">
+        <div class="form-buttons">
+            <input type="submit"  id="submit" value="Login">
+            <button><a href='/register'>Register</a></button>
+        </div>
     </form>
 </div>
