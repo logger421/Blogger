@@ -1,6 +1,10 @@
 * {
-  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;,
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+
 html, body {
   min-height: 100%;
   background: #fff;
@@ -18,6 +22,7 @@ body {
   min-height: 100vh;
 }
 /*TODO DELETE THIS BACKGROUND COLOR*/
+/* FORMS START*/
 .general-forms {
   background: powderblue;
   margin        : 0;
@@ -55,3 +60,36 @@ body {
   margin-right: 1px;
   margin-left: 1px;
 }
+/* FORMS END*/
+
+/* NAVBAR START */
+.navbar-container {
+  background-color: #333;
+  height: 50px;
+}
+
+.navbar-container ul {
+  display: flex;
+  list-style: none;
+  justify-content: space-evenly;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+.navbar-container li {
+  margin: 0 10px;
+  align-self: center;
+  height: 95%;
+}
+
+.navbar-container a {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  height: 100%;
+  padding: 0 10px;
+  line-height: 50px;
+}
+
+/* NAVBAR END */
