@@ -1,6 +1,9 @@
 <%- include('partials/header') %>
 <div class="main-body-container">
     <form class="register-form general-forms" id="register_form" action="/register" method="POST">
+        <% if(message !== null){ %>
+            <div class="warning"><%= message %></div>
+        <% } %>
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" placeholder="Enter username" required="true">
         <label for="email">Email:</label>
@@ -9,6 +12,7 @@
         <input type='text' id="fname" name="fname" placeholder="First name" required="true">
         <label for="lname">Last name:</label>
         <input type='text' id="lname" name="lname" placeholder="Last name" required="true">
+        <div id=passwords-message class="warning" style="display: none">Passwords are different!</div>
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" placeholder="Enter password" required="true">
         <label for="password2">Password:</label>
@@ -19,3 +23,19 @@
         </div>
     </form>
 </div>
+<%- include('partials/footer') %>
+<script>
+    $(document).ready(function () {
+        $('#password2').on('keyup', function () {
+            if ($('#password').val() && $('#password2').val()) {
+                if ($('#password').val() != $('#password2').val()) {
+                    $('#passwords-message').show();
+                } else {
+                    $('#passwords-message').hide();
+                }
+            } else {
+                $('#passwords-message').hide();
+            }
+        });
+    });
+</script>

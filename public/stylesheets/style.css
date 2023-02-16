@@ -116,6 +116,11 @@ body {
 }
 /* NAVBAR END */
 
+.warning {
+  font-size: medium;
+  color: red;
+}
+
 /*FOOTER */
 .footer-container {
   grid-row: 3 / 4;

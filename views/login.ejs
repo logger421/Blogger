@@ -2,7 +2,7 @@
 <div class="main-body-container">
     <form class="login-form general-forms" action="/login" method="POST">
         <% if(message){ %>
-            <div style="font-size: medium; color: red">Username or password incorrect</div>
+            <div class="warning">Username or password incorrect</div>
         <%}%>
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" placeholder="Enter username" required="true">
