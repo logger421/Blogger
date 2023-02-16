@@ -22,17 +22,19 @@ async function deleteBlog(id) {
 
 async function getUser(username) {
     const [result] = await pool.query(`SELECT * FROM users WHERE username=?`, [username]);
+    console.log('Getting user');
     if (result) return result; else return null;
 }
 
 async function checkUser(username) {
     const [result] = await pool.query(`SELECT COUNT(*) as count FROM users WHERE username=?`, [username]);
+    console.log('Checking user');
     return result[0].count;
 }
 
 async function addUser(username, first_name, last_name, email, password) {
     const [result] = await pool.query(`INSERT INTO users (username, first_name, last_name, email, password) values (?, ?, ?, ?, ?)`, [username ,first_name, last_name, email, password]);
-    console.log('Registered user')
+    console.log('Adding user');
     return result.insertId;
 }
 
