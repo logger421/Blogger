@@ -10,6 +10,11 @@ async function getBlogs() {
     return rows
 }
 
+async function getUserBlogs(user_id) {
+    const [rows] = await pool.query(`SELECT * FROM blogs WHERE created_by=?`, [user_id]);
+    return rows
+}
+
 async function addBlog(title, content) {
     const [result] = await pool.query(`INSERT INTO blogs (title, snippet, content) values(?, ?, ?)`, [title, snippet, content]);
     return getBlog(result.insertId)
@@ -45,5 +50,6 @@ module.exports = {
     addBlog: addBlog,
     getUser: getUser,
     addUser: addUser,
-    checkUser: checkUser
+    checkUser: checkUser,
+    getUserBlogs: getUserBlogs
 }
