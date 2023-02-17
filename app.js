@@ -3,13 +3,17 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const session = require('express-session');
+const sessionStore = require('./helpers/session_store');
+const isAuth = require('./helpers/authorize_user')
 
-var homeRouter = require('./routes/home');
-var loginRouter = require('./routes/login');
-var registerRouter = require('./routes/register');
-var blogsRouter = require('./routes/blogs');
-var addBlogRouter = require('./routes/add-blog');
-var aboutRouter = require('./routes/about');
+const homeRouter = require('./routes/home');
+const loginRouter = require('./routes/login');
+const registerRouter = require('./routes/register');
+const blogsRouter = require('./routes/blogs');
+const addBlogRouter = require('./routes/add-blog');
+const aboutRouter = require('./routes/about');
+const logoutRouter = require('./routes/logout');
 
 const app = express();
 
@@ -17,18 +21,26 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+app.use(session({
+    secret: 'secret-session',
+    resave: false,
+    saveUninitialized: false,
+    store: sessionStore
+}));
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/home', homeRouter);
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
-app.use('/blogs', blogsRouter);
-app.use('/add-blog', addBlogRouter);
-app.use('/about', aboutRouter);
+app.use('/home', isAuth, homeRouter);
+app.use('/blogs', isAuth, blogsRouter);
+app.use('/add-blog', isAuth, addBlogRouter);
+app.use('/about', isAuth, aboutRouter);
+app.use('/logout', isAuth, logoutRouter);
 
 // // TODO: give access to home page only to logged people, redirect rest to login page.
 app.get('/', function (req, res) {

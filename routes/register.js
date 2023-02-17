@@ -9,7 +9,7 @@ router.get('/', function (req, res, next) {
 });
 
 router.post('/', assure_username_unique, authenticate.encrypt_password, async (req, res, next) => {
-    res.redirect('/home');
+    res.redirect('/login');
 });
 
 module.exports = router;

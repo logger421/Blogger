@@ -8,6 +8,7 @@ router.get('/', function (req, res, next) {
 });
 
 router.post('/', authenticate.authenticate_password, async (req, res, next) => {
+    req.session.isAuth = true;
     res.redirect('/home');
 });
 
