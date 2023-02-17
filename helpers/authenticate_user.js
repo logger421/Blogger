@@ -21,10 +21,11 @@ async function encrypt_password(req, res, next) {
 
 async function authenticate_password(req, res, next) {
     const [user] = await db.getUser(req.body.username);
-    console.log(user)
     if(user == null) return res.status(400).send('Cannot find user');
     try {
         if(await bcrypt.compare(req.body.password, user.password)) {
+            req.session.isAuth = true;
+            req.session.u_number = user.ID;
             next();
         } else {
             res.render('login', {title: 'Login', message: true});

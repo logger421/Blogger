@@ -22,10 +22,14 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(session({
+    name: 'logged_session',
     secret: 'secret-session',
     resave: false,
     saveUninitialized: false,
-    store: sessionStore
+    cookie: {
+        maxAge: 60 * 60 * 1000
+    },
+    store: sessionStore,
 }));
 
 app.use(logger('dev'));
@@ -41,9 +45,7 @@ app.use('/blogs', isAuth, blogsRouter);
 app.use('/add-blog', isAuth, addBlogRouter);
 app.use('/about', isAuth, aboutRouter);
 app.use('/logout', isAuth, logoutRouter);
-
-// // TODO: give access to home page only to logged people, redirect rest to login page.
-app.get('/', function (req, res) {
+app.get('/', isAuth, function (req, res) {
     res.redirect('/home');
 });
 
