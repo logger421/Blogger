@@ -19,7 +19,7 @@ body {
 
 /* HOME START */
 .main-body-container {
-  background: linear-gradient(to bottom, #0E5CAD, #7CBF70);
+  background: powderblue;
   min-height: 100vh;
   display: grid;
   grid-template-rows: auto 1fr auto;
@@ -45,12 +45,11 @@ body {
 
 /* FORMS START*/
 .general-forms {
-  background: powderblue;
-  margin: 0;
-  padding: 0;
   display: grid;
   place-content: center;
-  min-height: 50vh;
+  margin: 0;
+  padding: 0;
+  min-height: 80vh;
 }
 
 .general-forms a {
