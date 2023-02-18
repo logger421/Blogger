@@ -1,12 +1,12 @@
 <%- include('partials/header') %>
 <div class="main-body-container">
   <%- include('partials/nav') %>
-  <div class="main-content-container">
+  <div class="main-content-container all-blogs-container">
     <h3 class="welcome-message">Welcome my blogger, come take a look at your blogs:</h3>
     <%for (blog of blogs) { %>
     <div class="blog">
       <a href="/blogs/<%= blog.ID %>"><h2><%= blog.title %></h2></a>
-      <p><%= blog.content%></p>
+      <pre><%= blog.content%></pre>
     </div>
     <%}%>
   </div>

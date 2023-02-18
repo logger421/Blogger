@@ -43,6 +43,8 @@ body {
     border: dotted black;
 }
 
+
+
 /* HOME END */
 
 /* FORMS START*/
@@ -166,62 +168,74 @@ body {
     border-radius: 15px;
 }
 
-.blog p {
+.blog pre {
     min-height: 15vh;
     text-align: left;
     padding: 5px;
     margin: 5px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+}
+
+/* Limit number of lines displayed*/
+.all-blogs-container pre {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 6; /* number of lines to show */
+    -webkit-box-orient: vertical;
+    line-clamp: 6;
 }
 
 /*SINGLE BLOG STYLES END*/
 
 /* ADD SINGLE BLOG */
+.add-blog-container {
+    margin: 0 30px 0;
+}
+
 .add-blog #title, #content{
     width: 100%;
     padding: 5px;
     font-size: 18px;
-}
-
-.add-blog #content {
+    background: beige;
     border-radius: 10px;
-}
-
-.add-blog-container {
-    margin: 0 30px 0;
-
-}
-
-.add-blog #submit {
-    padding: 5px;
-    width: 20%;
-    margin-right: 20px;
-    float: right;
-}
-
-.add-blog #go-back {
-    padding: 5px;
-    width: 20%;
-    margin-left: 20px;
-    float: left;
-    border-radius: 5px;
 }
 
 .add-blog .form-buttons {
     display: block;
 }
 
+.add-blog #submit {
+    padding: 5px;
+    width: 10%;
+    margin-right: 20px;
+    float: right;
+    background: beige;
+}
+
+.add-blog #go-back {
+    padding: 5px;
+    width: 10%;
+    margin-left: 20px;
+    float: left;
+    border-radius: 5px;
+    background: beige;
+}
 /* AND SINGLE BLOG END */
 
 /*FOOTER */
 .footer-container {
     grid-row: 3 / 4;
     width: 98%;
-    background: linear-gradient(to top, pink, #FFFFFF);
+    background: linear-gradient(to top right, cadetblue, #FFFFFF);
     border-radius: 5px;
     justify-self: center;
     text-align: center;
     border: solid black;
     height: 35px;
-    /*margin-bottom: 5px;*/
-    margin: 0 30px 5px 30px;
+    margin: 0 30px 2px 30px;
 }

@@ -6,17 +6,17 @@ async function getBlog(id) {
 }
 
 async function getBlogs() {
-    const [rows] = await pool.query(`SELECT * FROM blogs`);
+    const [rows] = await pool.query(`SELECT * FROM blogs ORDER BY ID DESC`);
     return rows
 }
 
 async function getUserBlogs(user_id) {
-    const [rows] = await pool.query(`SELECT * FROM blogs WHERE created_by=?`, [user_id]);
+    const [rows] = await pool.query(`SELECT * FROM blogs WHERE created_by=? ORDER BY ID DESC`, [user_id]);
     return rows
 }
 
-async function addBlog(title, content) {
-    const [result] = await pool.query(`INSERT INTO blogs (title, snippet, content) values(?, ?, ?)`, [title, snippet, content]);
+async function addBlog(title, content, created_by) {
+    const [result] = await pool.query(`INSERT INTO blogs (title, content, created_by) values(?, ?, ?)`, [title, content, created_by]);
     return getBlog(result.insertId)
 }
 
