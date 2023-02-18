@@ -2,7 +2,7 @@
 <div class="main-body-container">
   <%- include('partials/nav') %>
   <div class="main-content-container">
-    <h3>Welcome to Blogger, take a look at your blogs:!</h3>
+    <h3 class="welcome-message">Welcome my blogger, come take a look at your blogs:</h3>
     <%for (blog of blogs) { %>
     <div class="blog">
       <a href="/blogs/<%= blog.ID %>"><h2><%= blog.title %></h2></a>

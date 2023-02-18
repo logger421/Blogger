@@ -26,6 +26,7 @@ async function authenticate_password(req, res, next) {
         if(await bcrypt.compare(req.body.password, user.password)) {
             req.session.isAuth = true;
             req.session.u_number = user.ID;
+            req.session.username = user.username;
             next();
         } else {
             res.render('login', {title: 'Login', message: true});

@@ -1,0 +1,24 @@
+<%- include('partials/header') %>
+<div class="main-body-container">
+    <%- include('partials/nav') %>
+    <div class="main-content-container">
+        <div class="welcome-message">Hello <%= username%>! What would you like to write?</div>
+        <div class="blog add-blog-container">
+            <form method="post" class="add-blog" action="/add-blog">
+                <div>
+                    <label for="title">Title:</label><br>
+                    <input type="text" id="title" name="title" placeholder="Enter blog title" required="true" autofocus="true"><br>
+                </div>
+                <div>
+                    <label for="content">Content:</label><br>
+                    <textarea id="content" name="content" rows="20" cols="200" placeholder="Enter blog content" required="true"></textarea><br>
+                </div>
+                <div class="form-buttons">
+                    <button id="go-back"><a href="/home">Return</a></button>
+                    <input type="submit" id="submit" value="Create blog">
+                </div>
+            </form>
+        </div>
+    </div>
+    <%- include('partials/footer') %>
+</div>
