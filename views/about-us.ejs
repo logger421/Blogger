@@ -1,0 +1,35 @@
+<%- include('partials/header') %>
+<div class="main-body-container">
+    <%- include('partials/nav') %>
+    <section class="about-us">
+        <div class="about">
+            <h2>Who we are?</h2>
+            <pre>
+Once upon a time, there was a small group of friends who loved to write and share their stories with the world. They each had their own unique voice and perspective, but they all shared a passion for creativity and self-expression.
+
+One day, they decided to create a website where they could share their stories with others. They called it "The Storytellers" and it quickly became a beloved destination for readers who were looking for something different.
+
+Over time, "The Storytellers" grew and evolved. More writers joined the team and the website expanded to include new features and content. But through it all, the original spirit of creativity and self-expression remained at the heart of everything they did.
+
+Today, "The Storytellers" is a thriving community of writers and readers who share a love of storytelling. We hope you'll join us and become a part of our story too.
+            </pre>
+            <div class="show-email">
+                <h2>Any problems? Contact us!</h2>
+                <button id="SHOW" >EMAIL</button>
+                <h3 id="email" style="display: none">blogger.contact@gmail.com</h3>
+            </div>
+        </div>
+    </section>
+    <%- include('partials/footer') %>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#SHOW').addClass("blink");
+
+        $('#SHOW').on('click', function () {
+            $('#SHOW').hide();
+            $('#email').show();
+        });
+    });
+</script>
