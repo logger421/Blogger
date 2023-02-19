@@ -8,7 +8,8 @@ router.get('/', function(req, res, next) {
 router.post('/', async function(req, res, next) {
     let id = await db.addBlog(req.body.title, req.body.content, req.session.u_number);
     console.log('blog added!')
-    res.render('add-blog', {title: 'Add-blog', username: req.session.username});
+    // res.render('add-blog', {title: 'Add-blog', username: req.session.username});
+    res.redirect('/home')
 });
 
 module.exports = router;

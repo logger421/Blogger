@@ -21,7 +21,7 @@ async function addBlog(title, content, created_by) {
 }
 
 async function deleteBlog(id) {
-    await pool.query(`DELETE * FROM blogs WHERE id=?`, [id]);
+    const [result] = await pool.query(`DELETE FROM blogs WHERE ID=?`, [id]);
     console.log('DELETED BLOG');
 }
 

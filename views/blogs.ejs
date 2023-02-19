@@ -4,11 +4,30 @@
     <div class="main-content-container all-blogs-container">
         <% for (blog of blogs) { %>
             <div class="blog">
-                <a href="/blogs/<%= blog.ID %>"><h2><%= blog.title %></h2></a>
+                <div class="header-container">
+                    <h2><a href="/blogs/<%= blog.ID %>"><%= blog.title %></a></h2>
+                    <% if(blog.created_by === u_number) { %>
+                        <i class="fa-solid fa-trash-can trash delete-button" data-blog-id="<%= blog.ID %>"></i>
+                    <% } %>
+                </div>
                 <pre><%= blog.content %></pre>
             </div>
         <% } %>
     </div>
     <%- include('partials/footer') %>
 </div>
-</div>
+
+<script>
+    $(document).ready(function () {
+        $(".delete-button").on("click", function () {
+            let blogId = $(this).data("blog-id");
+            $.ajax({
+                url: "/blogs/" + blogId,
+                type: "DELETE",
+                success: function (result) {
+                    location.reload(true);
+                }
+            });
+        });
+    });
+</script>

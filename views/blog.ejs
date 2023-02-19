@@ -3,9 +3,29 @@
     <%- include('partials/nav') %>
     <div class="main-content-container">
         <div class="blog">
-            <h2><%= blog.title %></h2>
+            <div class="header-container">
+                <h2><a href="/blogs/<%= blog.ID %>"><%= blog.title %></a></h2>
+                <%if(blog.created_by === u_number) {%>
+                    <i class="fa-solid fa-trash-can trash delete-button" data-blog-id="<%= blog.ID %>"></i>
+                <%}%>
+            </div>
             <pre><%= blog.content %></pre>
         </div>
     </div>
     <%- include('partials/footer') %>
 </div>
+
+<script>
+    $(document).ready(function() {
+        $(".delete-button").on("click", function() {
+            let blogId = $(this).data("blog-id");
+            $.ajax({
+                url: "/blogs/" + blogId,
+                type: "DELETE",
+                success: function(result) {
+                    location.reload(true);
+                }
+            });
+        });
+    });
+</script>

@@ -5,7 +5,7 @@ const db = require('../helpers/queries');
 /* GET home page. */
 router.get('/', async (req, res, next) => {
   const blogs = await db.getUserBlogs(req.session.u_number);
-  res.render('home', { title: 'Home', blogs: blogs});
+  res.render('home', { title: 'Home', blogs: blogs, u_number: req.session.u_number});
 });
 
 router.get('/:id', async (req, res, next) => {

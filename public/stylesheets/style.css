@@ -168,14 +168,6 @@ body {
     text-decoration: none;
 }
 
-.blog h2 {
-    /*text-align: center;*/
-    border: solid black;
-    margin: 5px;
-    padding-left: 5px;
-    border-radius: 15px;
-}
-
 .blog pre {
     min-height: 15vh;
     text-align: left;
@@ -188,8 +180,30 @@ body {
     word-wrap: break-word;
 }
 
+.blog .header-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.blog h2 {
+    text-align: center;
+    margin: 5px;
+    padding-left: 5px;
+    border-radius: 15px;
+    width: 97%;
+}
+
+.blog .trash {
+    color: red;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-right: 20px;
+}
+
 /* Limit number of lines displayed*/
 .all-blogs-container pre {
+    border: solid grey;
+    border-radius: 5px;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
