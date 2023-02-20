@@ -2,8 +2,11 @@
 <div class="main-body-container">
     <%- include('partials/nav') %>
     <div class="main-content-container">
-        <div class="welcome-message">Hello <%= username%>! What would you like to write?</div>
+        <div class="welcome-message"><b>Hello <%= username%>! What would you like to write?</b>></div>
         <div class="blog add-blog-container">
+            <% if(message !== null){ %>
+                <div class="warning"><%= message %></div>
+            <% } %>
             <form method="post" class="add-blog" action="/add-blog">
                 <div>
                     <label for="title">Title:</label><br>

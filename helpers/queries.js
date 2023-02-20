@@ -1,5 +1,11 @@
 const pool = module.require('../helpers/database');
 
+async function checkBlogTitle(title) {
+    const [result] = await pool.query(`SELECT COUNT(*) as count FROM blogs WHERE title=?`, [title]);
+    console.log('Checking blog title');
+    return result[0].count;
+}
+
 async function getBlog(id) {
     const [blog] = await pool.query(`SELECT * FROM blogs WHERE id=?`, [id]);
     return blog[0]
@@ -51,5 +57,6 @@ module.exports = {
     getUser: getUser,
     addUser: addUser,
     checkUser: checkUser,
-    getUserBlogs: getUserBlogs
+    getUserBlogs: getUserBlogs,
+    checkBlogTitle: checkBlogTitle
 }
